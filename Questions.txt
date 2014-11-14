@@ -1,0 +1,41 @@
+
+
+Level 3 1901-2014 => [1901-1950] [ 1950-2014]
+
+Q1 What's your favourite car?
+	a Ford T
+	b Tesla S
+
+Q2 Which was the most revolutionary technology?
+	a Radio
+	b TV
+
+
+Level 4: 1901-1950 => [1901-1925] [1925-1950]
+
+Q What is your favourite book ? 
+	a Sherlock Holmes
+	b Gone With the Wind
+
+Level 4: 1950-2014 => [1950-1969] [1969 -2014]
+
+Q What is your favourite book ? 
+	a Lord of the rings
+	b Harry Potter
+
+
+Level 5: 1901-1925
+
+	- 4 Cubism paintings
+
+Level 5: 1925-1950 
+  	- 4 Surrealism paintings
+
+Level 5: 1950-1969
+	- 4 Pop art paintings
+
+Level 5: 1969-2014
+	- 4 Hyperrealism paintings
+
+
+
