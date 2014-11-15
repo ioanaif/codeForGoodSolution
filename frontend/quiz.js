@@ -1,8 +1,9 @@
 
 
 function renderQuestion() {
-  
-    document.writeln('<p class="question">' + Test + '</p>'); 
+  	//alert('merge')
+   // document.writeln('<p class="question">' + Test + '</p>'); 
+    $('#quiz-container').html('Test')
     }
   
 

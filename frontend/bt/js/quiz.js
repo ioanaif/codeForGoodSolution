@@ -1,25 +1,14 @@
+var questions = new Array();
 
 
-function renderQuestion() {
-  
-    document.writeln('<p class="question">' + Test + ' <span id="result_' + a + '"><img src="blank.gif" style="border:0" alt="" /></span></p>');
-
-    }
-  
+questions[0] = "Test1"
+questions[1] = "Test2"
 
 
-/*
-  function generateQuestions(){
 
-  	html = '<div>' + 
-
-  	document.getElementByID('quiz-container').innerHTML = html;
+function render(){
+	document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
 
 
-  }
 
-  $(document).on('click', '#questionButton', function(){
-
-  });
-
-  */
