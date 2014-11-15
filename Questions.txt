@@ -47,7 +47,7 @@ Q1: Would you rather find out how far is the Sun or how it works?
 
 
 Level 3: EC(a)/Med(b)
-Q1: Would you rather find out more about the humand body or about the financial mechanisms?
+Q1: Would you rather find out more about the human body or about the financial mechanisms?
 	a. financial mechanisms
 	b. human body
 
