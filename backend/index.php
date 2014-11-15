@@ -26,6 +26,12 @@
 					<div class="answerButton left transition-short">Sure</div>
 					<div class="answerButton right transition-short">Not Really</div>
 				</div>
+				<div class="resultPage transition">
+					<div class='entry' id="name"></div>
+					<div class='entry' id="area">Area of development</div>
+					<div class='entry' id="year">Won award in year: </div>
+					<div class='entry' id="motivation">Motivation: </div>
+				</div>
 			</div>
 			
 		</div>  		

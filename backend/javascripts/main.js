@@ -42,11 +42,15 @@ $(document).ready(function () {
 
 	$(document).on('keyup','#mainInput', function () {
 
-		feedDataToFilter($('#mainInput')val());
+		feedDataToFilter($('#mainInput').val());
 		
 	});
 
 });
+
+function feedDataToFilter (argument) {
+	console.log(argument)
+}
 
 function initialiseQuestionPositions () 
 {
@@ -76,7 +80,7 @@ function nextQuestion () {
 	++curentQuestion;
 
 	if (curentQuestion == maxNoQuestions) {
-		alert('reached end');
+		displayResult();
 		return;
 	};
 
@@ -115,6 +119,24 @@ function getAllLaureatesByCountry (country) {
 			});
 }
 
+function displayResult () {
+
+$('.resultPage').css({'display':'block'});
+
+setTimeout( function () {
+
+	$('.resultPage').css({'width':'820px'});
+
+
+setTimeout( function () {
+
+	$('.entry').fadeIn();
+
+},300)
+
+},500)
+	
+}
 
 // // level1
 // var level1Questions = ["Are you a people-oriented person?","Do you consider yourself to be an artsy type?","Do you see the world in black and white or shades of grey?"];

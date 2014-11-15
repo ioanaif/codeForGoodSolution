@@ -108,6 +108,30 @@ body{
 .blind{
   opacity: 0;
 }
+.resultPage{
+  width: 0px;
+  height:200px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 26px;
+  display: none;
+}
+#name{
+  color: black;
+}
+#area{
+  color:purple;
+}
+#motivation{
+  color:purple;
+}
+#year{
+  color:purple;
+}
+.entry{
+  padding:10px;
+  display: none;
+}
 ::-webkit-input-placeholder { /* WebKit browsers */
     color:    rgb(48, 48, 48);
 }
