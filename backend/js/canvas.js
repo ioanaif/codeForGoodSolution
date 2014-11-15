@@ -634,7 +634,6 @@ NCanvas.prototype.onData = function(data)
 	this._NSInit();
 	this.zoomOnBounds(this._NSBounds());
 	this.moveToPoint(this._NSCentre(), false);
-	
 }
 
 NCanvas.prototype.onFrame = function()

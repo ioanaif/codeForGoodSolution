@@ -34,22 +34,30 @@ $(document).ready(function () {
 
 	});
 
-	$(document).on('click','.answerButton', function () {
+	$(document).on('keyup','#mainInput', function () {
 
+		//feedDataToFilter($('#mainInput').val());
+		
+	});
+
+	$(document).on('click','.right', function () {
+
+		feedDataToFilter([NCQuizState.Science,NCQuizState.EcMd,NCQuizState.Md]);
 		nextQuestion();
 		
 	});
 
-	$(document).on('keyup','#mainInput', function () {
+	$(document).on('click','.left', function () {
 
-		feedDataToFilter($('#mainInput').val());
+		feedDataToFilter([NCQuizState.Science,NCQuizState.PhCh,NCQuizState.Ph]);
+		nextQuestion();
 		
 	});
 
 });
 
-function feedDataToFilter (argument) {
-	console.log(argument)
+function feedDataToFilter (array) {
+	ncanvas.quizSetState(array[curentQuestion])
 }
 
 function initialiseQuestionPositions () 
@@ -81,6 +89,7 @@ function nextQuestion () {
 
 	if (curentQuestion == maxNoQuestions) {
 		displayResult();
+		ncanvas.quizSetState(NCQuizState.Finalise)
 		return;
 	};
 
@@ -121,7 +130,9 @@ function getAllLaureatesByCountry (country) {
 
 function displayResult () {
 
-$('.resultPage').css({'display':'block'});
+	console.log(ncanvas._NSGet()[0].year);
+
+	$('.resultPage').css({'display':'block'});
 
 setTimeout( function () {
 
@@ -135,6 +146,11 @@ setTimeout( function () {
 },300)
 
 },500)
+
+$("#name").append(ncanvas._NSGet()[0].firstname + " " + ncanvas._NSGet()[0].surname);
+$("#year").append(ncanvas._NSGet()[0].year);
+$("#motivation").append(ncanvas._NSGet()[0].motivation);
+$("#area").append(ncanvas._NSGet()[0].field);
 	
 }
 
