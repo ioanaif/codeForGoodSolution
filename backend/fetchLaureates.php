@@ -13,7 +13,23 @@ function getLaureates()
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
   $string = curl_exec($ch);
   curl_close($ch);
-  print $string;
+  return $string;
+}
+
+function getLaureatesByCountry($country)
+{
+  # Base URL for the API
+  $url  = 'http://api.nobelprize.org/v1/laureate.json';
+  # List Nobel Prizes in Medicine from 1990 to 1994
+  $url .= '?bornCountry='.$country;
+
+  # Retreieve the result from the API using CURL
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL,$url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+  $string = curl_exec($ch);
+  curl_close($ch);
+  return $string;
 }
 
 
@@ -21,7 +37,16 @@ if ($_POST['token'] == 'laureate') {
   echo json_encode(getLaureates());
   die();
 }
+
+if ($_POST['token'] == 'country') {
+
+  echo json_encode(getLaureatesByCountry($_POST['country']));
+  die();
+
+}
+
 echo "not ok";
+
 /*
 # Read the JSON output into an associative array
 $result  = json_decode($string, true);
