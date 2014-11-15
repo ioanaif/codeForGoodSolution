@@ -35,17 +35,21 @@ Q1: Are you driven more by financial gain or curiosity?
 	a. Curiosity
 	b. Financial 
 
-Q2: 
 
 
 
-Level 2.1: Ph(a)/CH(b)
+Level 3: Ph(a)/CH(b)
 
-Q1: 
+Q1: Would you rather find out how far is the Sun or how it works?
+	a. how far it is
+	b. how it works
 
 
 
-Level 2.1: EC/Med
+Level 3: EC(a)/Med(b)
+Q1: Would you rather find out more about the humand body or about the financial mechanisms?
+	a. financial mechanisms
+	b. human body
 
 
 
