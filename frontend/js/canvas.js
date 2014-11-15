@@ -146,13 +146,13 @@ NCanvas.prototype._NSFilter = function(predicate)
 	_nset2 = [];
 	for(var i = 0; i < this._nset.length; ++i)
 	{
-		if(predicate(node))
+		if(predicate(this._nset[i]))
 		{
-			_nset2.push(node);
+			_nset2.push(this._nset[i]);
 		}
 		else
 		{
-			eliminated.push(node);
+			eliminated.push(this._nset[i]);
 		}
 	}
 
@@ -229,9 +229,23 @@ NCanvas.prototype._NSContains = function(node)
 NCanvas.prototype._NSReduce = function()
 {
 	/* select one idx at random */
-	idx = Math.floor(Math.random() * this._nset.length);
-	this._nset = Array(this._nset[idx]);
 
+	ret = []
+	idx = Math.floor(Math.random() * this._nset.length);
+	for(var i = 0; i < this._nset.length; ++i)
+	{
+		if(i == idx)
+		{
+			continue;
+		}
+		else
+		{
+			ret.push(this._nset[i]);
+		}
+	}
+
+	this._nset = Array(this._nset[idx]);
+	return ret;
 }
 
 NCanvas.prototype._NSSize = function()
@@ -304,7 +318,9 @@ NCQuizState = {
 	Autumn: 20,
 	Spring: 21,
 	Summer: 22,
-	Winter: 23
+	Winter: 23,
+
+	Finalise: 30
 }
 
 
@@ -313,7 +329,7 @@ NCanvas.prototype.quizSetState = function(state)
 {
 	var grey = [];
 	// case 
-	switch(state):
+	switch(state)
 	{
 		case NCQuizState.Init:
 			this._NSInit();
@@ -357,7 +373,7 @@ NCanvas.prototype.quizSetState = function(state)
 
 		case NCQuizState.EcMd:
 			grey = this._NSFilter(function(node) {
-				if(node.field == "economics" || node.field = "medicine")
+				if(node.field == "economics" || node.field == "medicine")
 				{
 					return true;
 				}
@@ -434,7 +450,20 @@ NCanvas.prototype.quizSetState = function(state)
 			break;
 
 		// Stage2/3
+		case NCQuizState.Finalise:
+			grey = this._NSReduce();
+
 	}
+
+	// grey out all the grey nodes
+	for(var i = 0; i < grey.length; ++i)
+	{
+		this.circles[grey[i].id].fillColor = this.colors.faded;
+	}
+
+	// Find out the zoom
+	this.zoomOnBounds(this._NSBounds());
+	this.moveToPoint(this._NSCentre());
 }
 
 
