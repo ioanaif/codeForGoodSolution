@@ -14,6 +14,7 @@ NCSpring = function(ox, oy, dx, dy, rx, ry)
 	this.oY = oy;
 
 	this.frames = 0;
+
 }
 
 NCSpring.prototype.update = function()
@@ -224,6 +225,25 @@ NCanvas.prototype._NSContains = function(node)
 	return false;
 }
 
+// Select just 1 node
+NCanvas.prototype._NSReduce = function()
+{
+	/* select one idx at random */
+	idx = Math.floor(Math.random() * this._nset.length);
+	this._nset = Array(this._nset[idx]);
+
+}
+
+NCanvas.prototype._NSSize = function()
+{
+	return this._nset.length;
+}
+
+NCanvas.prototype._NSGet = function()
+{
+	return this._nset;
+}
+
 /// NAV functions
 
 NCanvas.prototype.zoomOnBounds = function(bounds)
@@ -260,7 +280,163 @@ NCanvas.prototype.moveToPoint = function(point, animate)
 }
 
 
+NCQuizState = {
+	Init: 0,
+	Science: 1,
+	Humanities: 2, 
+	PhCh: 3,
+	EcMd: 4,
+	Ph: 5, 
+	Ch: 6, 
+	Ec: 7,
+	Md: 8,
+	Peace: 9,
+	Liter: 10,
+
+	Period0: 11,
+	Period1: 12,
+	Period2: 13,
+	Period3: 14,
+	Period4: 15,
+	Period5: 16,
+	Period6: 17,
+
+	Autumn: 20,
+	Spring: 21,
+	Summer: 22,
+	Winter: 23
+}
+
+
 /// QUIZ functions
+NCanvas.prototype.quizSetState = function(state)
+{
+	var grey = [];
+	// case 
+	switch(state):
+	{
+		case NCQuizState.Init:
+			this._NSInit();
+			break;
+
+
+		case NCQuizState.Science:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "physics" ||
+					node.field == "chemistry" ||
+					node.field == "economics" ||
+					node.field == "medicine" )
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		case NCQuizState.Humanities:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "literature" || node.field == "peace")
+				{
+					return true;
+				}
+				return false;
+			});
+			break;
+
+		case NCQuizState.PhCh:
+			grey = this._NSFilter(function(node) { 
+				if(node.field == "physics" || node.field == "chemistry")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		case NCQuizState.EcMd:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "economics" || node.field = "medicine")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		case NCQuizState.Ph:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "physics")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		case NCQuizState.Ch:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "chemistry")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		case NCQuizState.Ec:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "economics")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+
+		case NCQuizState.Md:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "medicine")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		case NCQuizState.Peace:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "peace")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		case NCQuizState.Liter:
+			grey = this._NSFilter(function(node) {
+				if(node.field == "literature")
+				{
+					return true;
+				}
+
+				return false;
+			});
+			break;
+
+		// Stage2/3
+	}
+}
+
 
 
 NCanvas.prototype.onData = function(data)
