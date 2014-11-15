@@ -21,10 +21,10 @@
 				<div id="helpYou" class="transition-short">
 					Let Us help You.
 				</div>
-				<div class="questionCanvas">
+				<div class="questionCanvas transition-short">
 					<div class="questionTitle">Feel Sciency?</div>
-					<div class="answerButton transition-short">Sure</div>
-					<div class="answerButton transition-short">Not Really</div>
+					<div class="answerButton left transition-short">Sure</div>
+					<div class="answerButton right transition-short">Not Really</div>
 				</div>
 			</div>
 			
